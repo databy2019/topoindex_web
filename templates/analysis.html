@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="mx-auto text-center" style="max-width: 500px;">
+            <h1 class="display-5">Pembuatan TopoIndex</h1>
+            <p class="mb-5">Unggah file data geospasial Anda untuk memulai analisis.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-danger text-center">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <div class="bg-light p-4 p-sm-5 rounded">
+                    <form id="analysis-form" method="post" action="{{ url_for('process') }}" enctype="multipart/form-data">
+                        <div class="row g-3">
+                            <div class="col-12"><label for="dem_file" class="form-label">1. File DEM (.asc)</label><input type="file" name="dem_file" id="dem_file" class="form-control" required></div>
+                            <div class="col-12"><label for="dir_file" class="form-label">2. Arah Aliran (.asc)</label><input type="file" name="dir_file" id="dir_file" class="form-control" required></div>
+                            <div class="col-12"><label for="suffix" class="form-label">3. Sufiks Output</label><input type="text" name="suffix" id="suffix" class="form-control" value="web_run" required></div>
+                            <div class="col-sm-6"><label for="exponent" class="form-label">4. Exponent (pwr)</label><input type="number" name="exponent" id="exponent" class="form-control" value="-1.0" step="0.1" required></div>
+                            <div class="col-sm-6"><label for="iterations" class="form-label">5. Iterasi Maksimum</label><input type="number" name="iterations" id="iterations" class="form-control" value="100" required></div>
+                            <div class="col-12"><button class="btn btn-primary w-100 py-3" type="submit">Jalankan Analisis</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="spinner-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.8); z-index:1050; justify-content:center; align-items:center;">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"><span class="visually-hidden">Loading...</span></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.getElementById('analysis-form').addEventListener('submit', function() {
+        document.getElementById('spinner-overlay').style.display = 'flex';
+    });
+</script>
+{% endblock %}

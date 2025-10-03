@@ -1,0 +1,61 @@
+<!-- Nama File: templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>TopoIndex - Scientific Web App</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <!-- Link ke file CSS (Tidak ada perubahan) -->
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+    <!-- Jika template Anda menggunakan font awesome atau ikon lain, tambahkan linknya di sini -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <!-- ===== HEADER & NAVBAR BARU ===== -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
+        <a href="{{ url_for('index') }}" class="navbar-brand p-0">
+            <h2 class="m-0 text-primary"><i class="fa fa-map-marker-alt me-3"></i>Aplikasi TopoIndex</h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="{{ url_for('index') }}" class="nav-item nav-link">Home</a>
+                <a href="{{ url_for('analysis_page') }}" class="nav-item nav-link">Analisis</a>
+                <a href="{{ url_for('results') }}" class="nav-item nav-link">Hasil & Visualisasi</a>
+                <a href="{{ url_for('contact') }}" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- ===== AKHIR HEADER & NAVBAR BARU ===== -->
+
+    <!-- Area Konten Dinamis (Tidak ada perubahan) -->
+    <main>
+        {% block content %}
+        <!-- Konten dari halaman lain akan muncul di sini -->
+        {% endblock %}
+    </main>
+
+    <!-- Footer dari template (Tidak ada perubahan) -->
+    <div class="container-fluid bg-dark text-light mt-5 py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-8 text-center">
+                    <h3 class="text-white">TopoIndex Web Application</h3>
+                    <p class="text-white">Powered by Flask & Python</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Link ke file JS (Tidak ada perubahan) -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

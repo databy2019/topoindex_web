@@ -1,0 +1,4 @@
+# Nama File: requirements.txt
+Flask
+numpy
+matplotlib

@@ -1,0 +1,27 @@
+Memulai TopoIndex (Web App)
+Tanggal: 2025-10-03 12:19:18
+
+Membaca data grid elevasi...
+Indeksasi elevasi awal selesai.
+Membaca grid arah aliran...
+Ketidakcocokan: Sel 1 (0,0) mengarah ke luar grid.
+Ketidakcocokan: Sel 11 (1,0) mengarah ke luar grid.
+Ketidakcocokan: Sel 21 (2,0) mengarah ke luar grid.
+Ketidakcocokan: Sel 31 (3,0) mengarah ke luar grid.
+Ketidakcocokan: Sel 51 (5,0) mengarah ke luar grid.
+Ketidakcocokan: Sel 71 (7,0) mengarah ke luar grid.
+Ketidakcocokan: Sel 80 (7,9) mengarah ke luar grid.
+Ketidakcocokan: Sel 90 (8,9) mengarah ke luar grid.
+Ketidakcocokan: Sel 95 (9,4) mengarah ke luar grid.
+Ketidakcocokan: Sel 100 (9,9) mengarah ke luar grid.
+10 sel tidak cocok ditemukan.
+Mengoreksi nomor indeks sel...
+Iterasi 1, koreksi 8
+Iterasi 2, koreksi 6
+Iterasi 3, koreksi 4
+Iterasi 4, koreksi 4
+Iterasi 5, koreksi 5
+Iterasi 6, koreksi 0
+
+TopoIndex selesai dengan normal
+Tanggal: 2025-10-03 12:19:18

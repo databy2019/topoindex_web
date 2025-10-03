@@ -1,0 +1,67 @@
+<!-- Nama File: templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Bagian Hero/Judul Utama -->
+<div class="container-fluid bg-primary py-5 mb-5">
+    <div class="container py-5">
+        <div class="row justify-content-start">
+            <div class="col-lg-8 text-center text-lg-start">
+                <h1 class="display-1 text-white animated slideInRight">TopoIndex Web App</h1>
+                <p class="fs-4 text-white mb-4 animated slideInRight">Implementasi Python dari Utilitas TopoIndex (USGS) untuk Analisis Stabilitas Lereng</p>
+                <!-- Tombol "Call to Action" untuk mengarahkan pengguna ke halaman analisis -->
+                <a href="{{ url_for('analysis_page') }}" class="btn btn-light py-md-3 px-md-5 me-3 animated slideInRight">Mulai Analisis Sekarang</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bagian Tentang Aplikasi dengan Gambar -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <!-- Kolom Kiri: Deskripsi Aplikasi -->
+            <div class="col-lg-6 wow-disabled slideInUp-disabled" data-wow-delay="0.1s">
+                <h1 class="display-5 mb-4">Tentang Aplikasi Ini</h1>
+                <p class="mb-4">
+                    Aplikasi web ini adalah implementasi Python dari utilitas <strong>TopoIndex</strong>, sebuah komponen pra-pemrosesan data topografi untuk model <strong>TRIGRS (Transient Rainfall Infiltration and Grid-Based Regional Slope-Stability)</strong> dari U.S. Geological Survey (USGS).
+                </p>
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-diagram-3-fill fs-4 text-primary me-3"></i>
+                            <h5 class="mb-0">Indeksasi Topografi</h5>
+                        </div>
+                        <p class="ms-5 ps-1 mb-0">Mengurutkan sel grid berdasarkan elevasi untuk memahami urutan aliran air.</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-arrows-expand fs-4 text-primary me-3"></i>
+                            <h5 class="mb-0">Koreksi Arah Aliran</h5>
+                        </div>
+                        <p class="ms-5 ps-1 mb-0">Memperbaiki dan memastikan data arah aliran konsisten secara hidrologis.</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-calculator-fill fs-4 text-primary me-3"></i>
+                            <h5 class="mb-0">Perhitungan Faktor Bobot</h5>
+                        </div>
+                        <p class="ms-5 ps-1 mb-0">Menghitung faktor pembobotan untuk mendistribusikan aliran permukaan (runoff).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kolom Kanan: Gambar Ilustrasi (Menggantikan Formulir) -->
+            <div class="col-lg-6 wow-disabled slideInUp-disabled" data-wow-delay="0.5s">
+                <div class="position-relative overflow-hidden ps-5 pt-5 h-100" style="min-height: 400px;">
+                    <img class="position-absolute w-100 h-100" src="{{ url_for('static', filename='assets/img/ilustrasi.png') }}" alt="Ilustrasi Analisis Stabilitas Lereng" style="object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Tidak ada script yang diperlukan untuk halaman ini -->
+{% endblock %}
